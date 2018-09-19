@@ -1,24 +1,613 @@
+
 <html>
 	<head>
+		<meta charset="UTF-8">
+	
 		<title>Deception and Manipulation</title>
+		
+		<style>
+		
+		/* Custom CSS */
+		
+		/* Adjustments to plagerized widgets */
+		
+		.accordionItem ul li {
+			line-height: 0.5em;
+			min-height: 1em;
+			padding: 0.5em;
+		}
+		
+		dd.accordionItem {
+			margin-left: 0;
+		}
+		
+		dd.accordionItem p {
+			margin-left: 3em;
+		}
+		
+		.flip-card {
+			line-height: 1em;
+		}
+		
+		.card-front {
+			color: green;
+		}
+		
+		.card-back {
+			color: black;
+		}
+		
+		/* End Custom CSS */
+		
+		/* Flip cards */
+		
+		/***
+* CSS3 FLIP CARDS
+* Markup for an element that a user can hover to reveal content on the back, like a card
+* Browser Support: Safari, Firefox, Chrome, IE8+, and Touch Devices; (IE9 and below will not have any flip effect but will just change on hover)
+***/
+.flip-card {
+  display: block;
+  position: relative;
+  z-index: 1000;
+  min-height: 1em;
+  height: auto;
+  /*width: 100px;
+  height: 100px;*/
+}
+.flip-card .card-front,
+.flip-card .card-back {
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-transition: -moz-transform 500ms;
+  -o-transition: -o-transform 500ms;
+  -webkit-transition: -webkit-transform 500ms;
+  transition: transform 500ms;
+  display: block;
+  /* height: 100%; */
+  position: absolute;
+  /* width: 100%; */
+}
+.flip-card .card-front {
+  -moz-transform: perspective(300) rotateY(0);
+  -webkit-transform: perspective(300) rotateY(0);
+  transform: perspective(300) rotateY(0);
+  z-index: 900;
+}
+.flip-card .card-back {
+  -moz-transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+  z-index: 800;
+}
+.flip-card:hover .card-front {
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  -moz-transform: perspective(300) rotateY(180deg);
+  -webkit-transform: perspective(300) rotateY(180deg);
+  transform: perspective(300) rotateY(180deg);
+}
+.flip-card:hover .card-back {
+  z-index: 950;
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  -moz-transform: perspective(300) rotateY(0deg);
+  -webkit-transform: perspective(300) rotateY(0deg);
+  transform: perspective(300) rotateY(0deg);
+}
+
+
+
+		
+		/* End Flip cards */
+		
+		/* Tooltips */
+		
+		/* START TOOLTIP STYLES */
+[tooltip] {
+  position: relative; /* opinion 1 */
+  color: #7e90ad;
+}
+
+/* Applies to all tooltips */
+[tooltip]::before,
+[tooltip]::after {
+  text-transform: none; /* opinion 2 */
+  font-size: .9em; /* opinion 3 */
+  line-height: 1;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+  position: absolute;
+  display: none;
+  opacity: 0;
+}
+[tooltip]::before {
+  content: '';
+  border: 5px solid transparent; /* opinion 4 */
+  z-index: 1001; /* absurdity 1 */
+}
+[tooltip]::after {
+  content: attr(tooltip); /* magic! */
+  
+  /* 
+    Let the content set the size of the tooltips 
+    but this will also keep them from being obnoxious
+    */
+  min-width: 3em;
+  max-width: 21em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 1ch 1.5ch;
+  border-radius: .3ch;
+  box-shadow: 0 1em 2em -.5em rgba(0, 0, 0, 0.35);
+  background: #333;
+  color: #fff;
+  z-index: 1000; /* absurdity 2 */
+}
+
+/* Make the tooltips respond to hover */
+[tooltip]:hover::before,
+[tooltip]:hover::after {
+  display: block;
+}
+
+/* don't show empty tooltips */
+[tooltip='']::before,
+[tooltip='']::after {
+  display: none !important;
+}
+
+/* FLOW: UP */
+[tooltip]:not([flow])::before,
+[tooltip][flow^="up"]::before {
+  bottom: 100%;
+  border-bottom-width: 0;
+  border-top-color: #333;
+}
+[tooltip]:not([flow])::after,
+[tooltip][flow^="up"]::after {
+  bottom: calc(100% + 5px);
+}
+[tooltip]:not([flow])::before,
+[tooltip]:not([flow])::after,
+[tooltip][flow^="up"]::before,
+[tooltip][flow^="up"]::after {
+  left: 50%;
+  -webkit-transform: translate(-50%, -.5em);
+          transform: translate(-50%, -.5em);
+}
+
+/* FLOW: DOWN */
+[tooltip][flow^="down"]::before {
+  top: 100%;
+  border-top-width: 0;
+  border-bottom-color: #333;
+}
+[tooltip][flow^="down"]::after {
+  top: calc(100% + 5px);
+}
+[tooltip][flow^="down"]::before,
+[tooltip][flow^="down"]::after {
+  left: 50%;
+  -webkit-transform: translate(-50%, .5em);
+          transform: translate(-50%, .5em);
+}
+
+/* FLOW: LEFT */
+[tooltip][flow^="left"]::before {
+  top: 50%;
+  border-right-width: 0;
+  border-left-color: #333;
+  left: calc(0em - 5px);
+  -webkit-transform: translate(-.5em, -50%);
+          transform: translate(-.5em, -50%);
+}
+[tooltip][flow^="left"]::after {
+  top: 50%;
+  right: calc(100% + 5px);
+  -webkit-transform: translate(-.5em, -50%);
+          transform: translate(-.5em, -50%);
+}
+
+/* FLOW: RIGHT */
+[tooltip][flow^="right"]::before {
+  top: 50%;
+  border-left-width: 0;
+  border-right-color: #333;
+  right: calc(0em - 5px);
+  -webkit-transform: translate(.5em, -50%);
+          transform: translate(.5em, -50%);
+}
+[tooltip][flow^="right"]::after {
+  top: 50%;
+  left: calc(100% + 5px);
+  -webkit-transform: translate(.5em, -50%);
+          transform: translate(.5em, -50%);
+}
+
+/* KEYFRAMES */
+@-webkit-keyframes tooltips-vert {
+  to {
+    opacity: .9;
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+  }
+}
+@keyframes tooltips-vert {
+  to {
+    opacity: .9;
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+  }
+}
+
+@-webkit-keyframes tooltips-horz {
+  to {
+    opacity: .9;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+  }
+}
+
+@keyframes tooltips-horz {
+  to {
+    opacity: .9;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+  }
+}
+
+/* FX All The Things */ 
+[tooltip]:not([flow]):hover::before,
+[tooltip]:not([flow]):hover::after,
+[tooltip][flow^="up"]:hover::before,
+[tooltip][flow^="up"]:hover::after,
+[tooltip][flow^="down"]:hover::before,
+[tooltip][flow^="down"]:hover::after {
+  -webkit-animation: tooltips-vert 300ms ease-out forwards;
+          animation: tooltips-vert 300ms ease-out forwards;
+}
+
+[tooltip][flow^="left"]:hover::before,
+[tooltip][flow^="left"]:hover::after,
+[tooltip][flow^="right"]:hover::before,
+[tooltip][flow^="right"]:hover::after {
+  -webkit-animation: tooltips-horz 300ms ease-out forwards;
+          animation: tooltips-horz 300ms ease-out forwards;
+}
+
+		
+		/* End Tooltips */
+		
+		/* Accordion */
+
+//updated ver
+
+.heading-primary {
+  font-size: 2em;
+  padding: 2em;
+  text-align: center;
+}
+
+.accordion dl,
+.accordion-list {
+  border: 1px solid #ddd;
+}
+.accordion dl:after,
+.accordion-list:after {
+  content: "";
+  display: block;
+  height: 1em;
+  width: 100%;
+  background-color: #626466;
+}
+
+.accordion dd,
+.accordion__panel {
+  background-color: #eee;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+.accordion p {
+  /* padding: 1em 2em 1em 2em; */
+}
+
+.accordion {
+  position: relative;
+  background-color: #eee;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2em 0 2em 0;
+}
+
+.accordionTitle,
+.accordion__Heading {
+  background-color: #747677;
+  text-align: center;
+  font-weight: 700;
+  padding: 1em;
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  transition: background-color 0.5s ease-in-out;
+  border-bottom: 1px solid #626466;
+}
+.accordionTitle:before,
+.accordion__Heading:before {
+  content: "+";
+  font-size: 1.5em;
+  line-height: 0.5em;
+  float: left;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+.accordionTitle:hover,
+.accordion__Heading:hover {
+  background-color: #656768;
+}
+
+.accordionTitleActive,
+.accordionTitle.is-expanded {
+  background-color: #656768;
+}
+.accordionTitleActive:before,
+.accordionTitle.is-expanded:before {
+  -webkit-transform: rotate(-225deg);
+          transform: rotate(-225deg);
+}
+
+.accordionItem {
+  height: auto;
+  overflow: hidden;
+  max-height: 50em;
+  transition: max-height 1s;
+}
+@media screen and (min-width: 48em) {
+  .accordionItem {
+    max-height: 15em;
+    transition: max-height 0.5s;
+  }
+}
+
+.accordionItem.is-collapsed {
+  max-height: 0;
+}
+
+.no-js .accordionItem.is-collapsed {
+  max-height: auto;
+}
+
+.animateIn {
+  -webkit-animation: accordionIn 0.45s normal ease-in-out both 1;
+          animation: accordionIn 0.45s normal ease-in-out both 1;
+}
+
+.animateOut {
+  -webkit-animation: accordionOut 0.45s alternate ease-in-out both 1;
+          animation: accordionOut 0.45s alternate ease-in-out both 1;
+}
+
+@-webkit-keyframes accordionIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.9) rotateX(-60deg);
+            transform: scale(0.9) rotateX(-60deg);
+    -webkit-transform-origin: 50% 0;
+            transform-origin: 50% 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes accordionIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.9) rotateX(-60deg);
+            transform: scale(0.9) rotateX(-60deg);
+    -webkit-transform-origin: 50% 0;
+            transform-origin: 50% 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@-webkit-keyframes accordionOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.9) rotateX(-60deg);
+            transform: scale(0.9) rotateX(-60deg);
+  }
+}
+@keyframes accordionOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.9) rotateX(-60deg);
+            transform: scale(0.9) rotateX(-60deg);
+  }
+}
+
+		
+		/* End Accordion */
+
+		</style>
 	</head>
 	<body>
-		<h1>Deception guide</h1>
+		<div class="container">
 		
+			<h1>Deception guide</h1>
+
 		<h2>Step 1: Blah</h2>
-		
-		<p>Here's a paragraph...</p>
-		
+
+		<p>Here's 
+			<span tooltip="Here's a very long popup. Here's a very long popup. Here's a very long popup. Here's a very long popup. Here's a very long popup. Here's a very long popup. Here's a very long popup. Here's a very long popup. Here's a very long popup. Here's a very long popup. Here's a very long popup. Here's a very long popup. Here's a very long popup. ">
+				a paragraph...
+			</span>
+		</p>
+
 		<p>Here's another.</p>
-		
+
 		<h3>Major supporting point</h3>
-		
+
 		<p>Short explanation</p>
+
+		<div class="accordion">
+			<dl>
+				<dt>
+					<a href="#accordion1" aria-expanded="false" aria-controls="accordion1" class="accordion-title accordionTitle js-accordionTrigger">First Accordion heading</a>
+				</dt>
+				<dd class="accordion-content accordionItem is-collapsed" id="accordion1" aria-hidden="true">
+					<p>Lorem ipsum dolor sit amet, consectetur <a href="https://www.google.com">Test</a>adipiscing elit. Morbi eu interdum diam. Donec interdum porttitor risus non bibendum. Maecenas sollicitudin eros in quam imperdiet placerat. Cras justo purus, rhoncus nec lobortis ut, iaculis vel ipsum. Donec dignissim arcu nec elit faucibus condimentum. Donec facilisis consectetur enim sit amet varius. Pellentesque justo dui, sodales quis luctus a, iaculis eget mauris. </p>
+					<p>Aliquam dapibus, ante quis fringilla feugiat, mauris risus condimentum massa, at elementum libero quam ac ligula. Pellentesque at rhoncus dolor. Duis porttitor nibh ut lobortis aliquam. Nullam eu dolor venenatis mauris placerat tristique eget id dolor. Quisque blandit adipiscing erat vitae dapibus. Nulla aliquam magna nec elementum tincidunt.</p>
+				</dd>
+				<dt>
+					<a href="#accordion2" aria-expanded="false" aria-controls="accordion2" class="accordion-title accordionTitle js-accordionTrigger">
+						Second Accordion heading
+					</a>
+				</dt>
+				<dd class="accordion-content accordionItem is-collapsed" id="accordion2" aria-hidden="true">
+					<p>Lorem ipsum dolor sit amet, <span tooltip="Intra-accordion tooltip">consectetur adipiscing elit</span>. Morbi eu interdum diam. Donec interdum porttitor risus non bibendum. Maecenas sollicitudin eros in quam imperdiet placerat. Cras justo purus, rhoncus nec lobortis ut, iaculis vel ipsum. Donec dignissim arcu nec elit faucibus condimentum. Donec facilisis consectetur enim sit amet varius. Pellentesque justo dui, sodales quis luctus a, iaculis eget mauris. </p>
+					<p>Aliquam dapibus, ante quis fringilla feugiat, mauris risus condimentum massa, at elementum libero quam ac ligula. Pellentesque at rhoncus dolor. Duis porttitor nibh ut lobortis aliquam. Nullam eu dolor venenatis mauris placerat tristique eget id dolor. Quisque blandit adipiscing erat vitae dapibus. Nulla aliquam magna nec elementum tincidunt.</p>
+				</dd>
+				<dt>
+					<a href="#accordion3" aria-expanded="false" aria-controls="accordion3" class="accordion-title accordionTitle js-accordionTrigger">
+						Third Accordion heading
+					</a>
+				</dt>
+				<dd class="accordion-content accordionItem is-collapsed" id="accordion3" aria-hidden="true">
+					<ul>
+						<li>
+							<span class="flip-card">
+								<span class="card-front">
+									Item 1 Front
+								</span>
+								<span class="card-back">
+									Item 1 Back
+								</span>
+							</span>
+						</li>
+						<li>
+							<span class="flip-card">
+								<span class="card-front">
+									Item 2 Front
+								</span>
+								<span class="card-back">
+									Item 2 Back
+								</span>
+							</span>
+						</li>
+						<li>
+							<span class="flip-card">
+								<span class="card-front">
+									Here's one that's actually a reasonably long amount of content. Here's one that's actually a reasonably long amount of content. Here's one that's actually a reasonably long amount of content.
+								</span>
+								<span class="card-back">
+									Here's its rather tiny back side.
+								</span>
+							</span>
+						</li>
+					</ul>
+					
+				</dd>
+			</dl>
+		</div>
 		
-		<ul>
-			<li>bulleted item 1</li>
-			<li>bulleted item 2</li>
-			<li>bulleted item 2</li>
-		</ul>
+		</div>
+		
+		
+		<!-- JS STUFF THAT DEPENDS ON PREVIOUS CONTENT -->
+				<script>
+		
+		// Accordion
+		(function(){
+	var d = document,
+	accordionToggles = d.querySelectorAll('.js-accordionTrigger'),
+	setAria,
+	setAccordionAria,
+	switchAccordion,
+  touchSupported = ('ontouchstart' in window),
+  pointerSupported = ('pointerdown' in window);
+  
+  skipClickDelay = function(e){
+    e.preventDefault();
+    e.target.click();
+  }
+
+		setAriaAttr = function(el, ariaType, newProperty){
+		el.setAttribute(ariaType, newProperty);
+	};
+	setAccordionAria = function(el1, el2, expanded){
+		switch(expanded) {
+      case "true":
+      	setAriaAttr(el1, 'aria-expanded', 'true');
+      	setAriaAttr(el2, 'aria-hidden', 'false');
+      	break;
+      case "false":
+      	setAriaAttr(el1, 'aria-expanded', 'false');
+      	setAriaAttr(el2, 'aria-hidden', 'true');
+      	break;
+      default:
+				break;
+		}
+	};
+//function
+switchAccordion = function(e) {
+  console.log("triggered");
+	e.preventDefault();
+	var thisAnswer = e.target.parentNode.nextElementSibling;
+	var thisQuestion = e.target;
+	if(thisAnswer.classList.contains('is-collapsed')) {
+		setAccordionAria(thisQuestion, thisAnswer, 'true');
+	} else {
+		setAccordionAria(thisQuestion, thisAnswer, 'false');
+	}
+  	thisQuestion.classList.toggle('is-collapsed');
+  	thisQuestion.classList.toggle('is-expanded');
+		thisAnswer.classList.toggle('is-collapsed');
+		thisAnswer.classList.toggle('is-expanded');
+ 	
+  	thisAnswer.classList.toggle('animateIn');
+	};
+	for (var i=0,len=accordionToggles.length; i<len; i++) {
+		if(touchSupported) {
+      accordionToggles[i].addEventListener('touchstart', skipClickDelay, false);
+    }
+    if(pointerSupported){
+      accordionToggles[i].addEventListener('pointerdown', skipClickDelay, false);
+    }
+    accordionToggles[i].addEventListener('click', switchAccordion, false);
+  }
+})();
+		// End Accordion
+		
+		</script>
 	</body>
 </html>
