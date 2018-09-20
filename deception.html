@@ -9,6 +9,54 @@
 		
 		/* Custom CSS */
 		
+		/* Example toggle css */
+		
+		.accordion-title.accordionTitle.example-heading {
+			background-color: #758e7a;
+		}
+		
+		.accordion-title.accordionTitle.example-heading:hover,
+		.accordion__Heading:hover {
+		  background-color: #5f7a65;
+		}
+
+		.accordion-title.accordionTitle.example-heading.accordionTitleActive,
+		.accordion-title.accordionTitle.example-heading.accordionTitle.is-expanded {
+		  background-color: #5f7a65;
+		}
+		
+		.base-accordion-example {
+			color: #5f7a65;
+			background-color: #d3e2d6;
+		}
+		
+		.base-accordion-content.has-example:hover {
+			background-image: url("./img/example-ribbon.png");
+			background-repeat: no-repeat;
+			background-size: 10%;
+		}
+		
+		.base-accordion-example.has-example:hover {
+			background-image: url("./img/description-ribbon.png");
+			background-repeat: no-repeat;
+			background-size: 10%;
+		}
+		
+		.has-example {
+			height: auto;
+			overflow: hidden;
+			max-height: 50em;
+			transition: max-height 1s;
+		}
+		
+		.has-example.is-expanded {
+			max-height: auto;
+		}
+		
+		.has-example.is-collapsed {
+			max-height: 0;
+		}
+		
 		/* Adjustments to plagerized widgets */
 		
 		.accordionItem ul li {
@@ -25,86 +73,7 @@
 			margin-left: 3em;
 		}
 		
-		.flip-card {
-			line-height: 1em;
-		}
-		
-		.card-front {
-			color: green;
-		}
-		
-		.card-back {
-			color: black;
-		}
-		
 		/* End Custom CSS */
-		
-		/* Flip cards */
-		
-		/***
-* CSS3 FLIP CARDS
-* Markup for an element that a user can hover to reveal content on the back, like a card
-* Browser Support: Safari, Firefox, Chrome, IE8+, and Touch Devices; (IE9 and below will not have any flip effect but will just change on hover)
-***/
-.flip-card {
-  display: block;
-  position: relative;
-  z-index: 1000;
-  min-height: 1em;
-  height: auto;
-  /*width: 100px;
-  height: 100px;*/
-}
-.flip-card .card-front,
-.flip-card .card-back {
-  -moz-backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -moz-transition: -moz-transform 500ms;
-  -o-transition: -o-transform 500ms;
-  -webkit-transition: -webkit-transform 500ms;
-  transition: transform 500ms;
-  display: block;
-  /* height: 100%; */
-  position: absolute;
-  /* width: 100%; */
-}
-.flip-card .card-front {
-  -moz-transform: perspective(300) rotateY(0);
-  -webkit-transform: perspective(300) rotateY(0);
-  transform: perspective(300) rotateY(0);
-  z-index: 900;
-}
-.flip-card .card-back {
-  -moz-transform: rotateY(-180deg);
-  -webkit-transform: rotateY(-180deg);
-  transform: rotateY(-180deg);
-  z-index: 800;
-}
-.flip-card:hover .card-front {
-  -moz-transform: rotateY(180deg);
-  -ms-transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-  -moz-transform: perspective(300) rotateY(180deg);
-  -webkit-transform: perspective(300) rotateY(180deg);
-  transform: perspective(300) rotateY(180deg);
-}
-.flip-card:hover .card-back {
-  z-index: 950;
-  -moz-transform: rotateY(0deg);
-  -ms-transform: rotateY(0deg);
-  -webkit-transform: rotateY(0deg);
-  transform: rotateY(0deg);
-  -moz-transform: perspective(300) rotateY(0deg);
-  -webkit-transform: perspective(300) rotateY(0deg);
-  transform: perspective(300) rotateY(0deg);
-}
-
-
-
-		
-		/* End Flip cards */
 		
 		/* Tooltips */
 		
@@ -482,60 +451,71 @@
 		<div class="accordion">
 			<dl>
 				<dt>
-					<a href="#accordion1" aria-expanded="false" aria-controls="accordion1" class="accordion-title accordionTitle js-accordionTrigger">First Accordion heading</a>
-				</dt>
-				<dd class="accordion-content accordionItem is-collapsed" id="accordion1" aria-hidden="true">
-					<p>Lorem ipsum dolor sit amet, consectetur <a href="https://www.google.com">Test</a>adipiscing elit. Morbi eu interdum diam. Donec interdum porttitor risus non bibendum. Maecenas sollicitudin eros in quam imperdiet placerat. Cras justo purus, rhoncus nec lobortis ut, iaculis vel ipsum. Donec dignissim arcu nec elit faucibus condimentum. Donec facilisis consectetur enim sit amet varius. Pellentesque justo dui, sodales quis luctus a, iaculis eget mauris. </p>
-					<p>Aliquam dapibus, ante quis fringilla feugiat, mauris risus condimentum massa, at elementum libero quam ac ligula. Pellentesque at rhoncus dolor. Duis porttitor nibh ut lobortis aliquam. Nullam eu dolor venenatis mauris placerat tristique eget id dolor. Quisque blandit adipiscing erat vitae dapibus. Nulla aliquam magna nec elementum tincidunt.</p>
-				</dd>
-				<dt>
 					<a href="#accordion2" aria-expanded="false" aria-controls="accordion2" class="accordion-title accordionTitle js-accordionTrigger">
-						Second Accordion heading
+						First Accordion heading
 					</a>
 				</dt>
 				<dd class="accordion-content accordionItem is-collapsed" id="accordion2" aria-hidden="true">
-					<p>Lorem ipsum dolor sit amet, <span tooltip="Intra-accordion tooltip">consectetur adipiscing elit</span>. Morbi eu interdum diam. Donec interdum porttitor risus non bibendum. Maecenas sollicitudin eros in quam imperdiet placerat. Cras justo purus, rhoncus nec lobortis ut, iaculis vel ipsum. Donec dignissim arcu nec elit faucibus condimentum. Donec facilisis consectetur enim sit amet varius. Pellentesque justo dui, sodales quis luctus a, iaculis eget mauris. </p>
-					<p>Aliquam dapibus, ante quis fringilla feugiat, mauris risus condimentum massa, at elementum libero quam ac ligula. Pellentesque at rhoncus dolor. Duis porttitor nibh ut lobortis aliquam. Nullam eu dolor venenatis mauris placerat tristique eget id dolor. Quisque blandit adipiscing erat vitae dapibus. Nulla aliquam magna nec elementum tincidunt.</p>
+					<div class="base-accordion-content has-example js-exampleToggle is-expanded" aria-hidden="false">
+						<p>Basem Lorem ipsum dolor sit amet, <span tooltip="Intra-accordion tooltip">consectetur adipiscing elit</span>. Morbi eu interdum diam. Donec interdum porttitor risus non bibendum. Maecenas sollicitudin eros in quam imperdiet placerat. Cras justo purus, rhoncus nec lobortis ut, iaculis vel ipsum. Donec dignissim arcu nec elit faucibus condimentum. Donec facilisis consectetur enim sit amet varius. Pellentesque justo dui, sodales quis luctus a, iaculis eget mauris. </p>
+						<p>Aliquam dapibus, ante quis fringilla feugiat, mauris risus condimentum massa, at elementum libero quam ac ligula. Pellentesque at rhoncus dolor. Duis porttitor nibh ut lobortis aliquam. Nullam eu dolor venenatis mauris placerat tristique eget id dolor. Quisque blandit adipiscing erat vitae dapibus. Nulla aliquam magna nec elementum tincidunt.</p>
+					</div>
+					<div class="base-accordion-example has-example js-exampleToggle is-collapsed" aria-hidden="true">
+						<p>Examplem Lorem ipsum dolor sit amet, <span tooltip="Intra-accordion tooltip">consectetur adipiscing elit</span>. Morbi eu interdum diam. Donec interdum porttitor risus non bibendum. Maecenas sollicitudin eros in quam imperdiet placerat. Cras justo purus, rhoncus nec lobortis ut, iaculis vel ipsum. Donec dignissim arcu nec elit faucibus condimentum. Donec facilisis consectetur enim sit amet varius. Pellentesque justo dui, sodales quis luctus a, iaculis eget mauris. </p>
+					</div>
 				</dd>
 				<dt>
 					<a href="#accordion3" aria-expanded="false" aria-controls="accordion3" class="accordion-title accordionTitle js-accordionTrigger">
-						Third Accordion heading
+						Second Accordion heading
 					</a>
 				</dt>
 				<dd class="accordion-content accordionItem is-collapsed" id="accordion3" aria-hidden="true">
-					<ul>
-						<li>
-							<span class="flip-card">
-								<span class="card-front">
-									Item 1 Front
-								</span>
-								<span class="card-back">
-									Item 1 Back
-								</span>
-							</span>
-						</li>
-						<li>
-							<span class="flip-card">
-								<span class="card-front">
-									Item 2 Front
-								</span>
-								<span class="card-back">
-									Item 2 Back
-								</span>
-							</span>
-						</li>
-						<li>
-							<span class="flip-card">
-								<span class="card-front">
-									Here's one that's actually a reasonably long amount of content. Here's one that's actually a reasonably long amount of content. Here's one that's actually a reasonably long amount of content.
-								</span>
-								<span class="card-back">
-									Here's its rather tiny back side.
-								</span>
-							</span>
-						</li>
-					</ul>
-					
+					<div class="base-accordion-content has-example js-exampleToggle is-expanded" aria-hidden="false">
+						<ul>
+							<li>Item 1</li>
+							<li>Item 2</li>
+							<li>Item 3</li>
+						</ul>
+					</div>
+					<div class="base-accordion-example has-example js-exampleToggle is-collapsed" aria-hidden="true">
+						<ul>
+							<li>Example 1</li>
+							<li>Example 2</li>
+							<li>Example 3</li>
+							<li>Example 4</li>
+							<li>Example 5</li>
+							<li>Example 6</li>
+						</ul>
+					</div>
+				</dd>
+				<dt>
+					<a href="#accordion4" aria-expanded="false" aria-controls="accordion4" class="accordion-title accordionTitle js-accordionTrigger">
+						Third Accordion heading
+					</a>
+				</dt>
+				<dd class="accordion-content accordionItem is-collapsed" id="accordion4" aria-hidden="true">
+					<div class="base-accordion-content has-example js-exampleToggle is-expanded" aria-hidden="false">
+						<ul>
+							<li>Item 1</li>
+						</ul>
+					</div>
+					<div class="base-accordion-example has-example js-exampleToggle is-collapsed" aria-hidden="true">
+						<ul>
+							<li>Example 1</li>
+						</ul>
+					</div>
+				</dd>
+				<dt>
+					<a href="#accordion5" aria-expanded="false" aria-controls="accordion5" class="accordion-title accordionTitle js-accordionTrigger">
+						Fourth Accordion heading
+					</a>
+				</dt>
+				<dd class="accordion-content accordionItem is-collapsed" id="accordion5" aria-hidden="true">
+					<div class="base-accordion-content" aria-hidden="false">
+						<ul>
+							<li>No example instance</li>
+						</ul>
+					</div>
 				</dd>
 			</dl>
 		</div>
@@ -550,6 +530,7 @@
 		(function(){
 	var d = document,
 	accordionToggles = d.querySelectorAll('.js-accordionTrigger'),
+	exampleToggles = d.querySelectorAll('.js-exampleToggle'),
 	setAria,
 	setAccordionAria,
 	switchAccordion,
@@ -596,6 +577,33 @@ switchAccordion = function(e) {
  	
   	thisAnswer.classList.toggle('animateIn');
 	};
+toggleExample = function(e) {
+	console.log("example toggled");
+	e.preventDefault();
+	var thisQuestion = e.target.closest('.has-example');
+	if (thisQuestion)
+	{
+		var thisAnswer = thisQuestion.nextElementSibling;
+		if (thisQuestion.classList.contains('base-accordion-example'))
+		{
+			thisAnswer = thisQuestion.previousElementSibling;
+		}
+		
+		thisQuestion.classList.toggle('is-collapsed');
+		thisQuestion.classList.toggle('is-expanded');
+		thisAnswer.classList.toggle('is-collapsed');
+		thisAnswer.classList.toggle('is-expanded');
+		setAriaAttr(thisAnswer, 'aria-hidden', 'false');
+		setAriaAttr(thisQuestion, 'aria-hidden', 'true');
+		
+		var heading = thisAnswer.parentNode.previousElementSibling.getElementsByTagName('a')[0];
+		heading.classList.toggle('example-heading');
+		
+		thisQuestion.classList.remove('animateIn');
+		thisAnswer.classList.remove('animateIn');
+		thisAnswer.classList.add('animateIn');
+	}
+	};
 	for (var i=0,len=accordionToggles.length; i<len; i++) {
 		if(touchSupported) {
       accordionToggles[i].addEventListener('touchstart', skipClickDelay, false);
@@ -604,6 +612,15 @@ switchAccordion = function(e) {
       accordionToggles[i].addEventListener('pointerdown', skipClickDelay, false);
     }
     accordionToggles[i].addEventListener('click', switchAccordion, false);
+  }
+  for (var i=0,len=exampleToggles.length; i<len; i++) {
+		if(touchSupported) {
+      exampleToggles[i].addEventListener('touchstart', skipClickDelay, false);
+    }
+    if(pointerSupported){
+      exampleToggles[i].addEventListener('pointerdown', skipClickDelay, false);
+    }
+    exampleToggles[i].addEventListener('click', toggleExample, false);
   }
 })();
 		// End Accordion
