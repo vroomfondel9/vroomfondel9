@@ -1,5 +1,9 @@
 		/* Custom CSS */
 		
+		a {
+			color: #4169a8;
+		}
+		
 		/* Example toggle css */
 		
 		.accordion-title.accordionTitle.example-heading {
@@ -51,7 +55,7 @@
 		/* Adjustments to plagerized widgets */
 		
 		.accordionItem ul li {
-			line-height: 0.5em;
+			line-height: 1em;
 			min-height: 1em;
 			padding: 0.5em;
 		}
@@ -102,7 +106,7 @@
     but this will also keep them from being obnoxious
     */
   min-width: 3em;
-  max-width: 21em;
+  max-width: 63em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
