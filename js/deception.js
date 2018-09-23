@@ -3,7 +3,7 @@
 		(function(){
 	var d = document,
 	accordionToggles = d.querySelectorAll('.js-accordionTrigger'),
-	exampleToggles = d.querySelectorAll('.js-exampleToggle'),
+	exampleToggles = d.querySelectorAll('.has-example.js-exampleToggle'),
 	setAria,
 	setAccordionAria,
 	switchAccordion,

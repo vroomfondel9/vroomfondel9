@@ -279,7 +279,7 @@
 .accordion__panel {
   background-color: #eee;
   font-size: 1em;
-  line-height: 1.5em;
+  line-height: 1.0em;
 }
 
 .accordion p {
