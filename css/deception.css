@@ -342,7 +342,7 @@
 }
 @media screen and (min-width: 48em) {
   .accordionItem {
-    max-height: 15em;
+    max-height: 60em;
     transition: max-height 0.5s;
   }
 }
