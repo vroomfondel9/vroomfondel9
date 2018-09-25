@@ -4,6 +4,7 @@
 	var d = document,
 	accordionToggles = d.querySelectorAll('.js-accordionTrigger'),
 	exampleToggles = d.querySelectorAll('.has-example.js-exampleToggle'),
+	exampleToggleLinks = d.querySelectorAll('.has-example.js-exampleToggle a'),
 	setAria,
 	setAccordionAria,
 	switchAccordion,
@@ -13,6 +14,11 @@
   skipClickDelay = function(e){
     e.preventDefault();
     e.target.click();
+  }
+  
+  skipClickDelayAndStopBubbling = function(e){
+    e.target.click();
+	e.stopPropagation();
   }
 
 		setAriaAttr = function(el, ariaType, newProperty){
@@ -94,6 +100,15 @@ toggleExample = function(e) {
       exampleToggles[i].addEventListener('pointerdown', skipClickDelay, false);
     }
     exampleToggles[i].addEventListener('click', toggleExample, false);
+  }
+  for (var i=0,len=exampleToggleLinks.length; i<len; i++) {
+		if(touchSupported) {
+      exampleToggleLinks[i].addEventListener('touchstart', skipClickDelayAndStopBubbling, false);
+    }
+    if(pointerSupported){
+      exampleToggleLinks[i].addEventListener('pointerdown', skipClickDelayAndStopBubbling, false);
+    }
+    exampleToggleLinks[i].addEventListener('click', skipClickDelayAndStopBubbling, false);
   }
 })();
 		// End Accordion
