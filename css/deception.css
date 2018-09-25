@@ -4,6 +4,14 @@
 			color: #4169a8;
 		}
 		
+		.accordionItem ul:first-child {
+			padding-top: 1em;
+		}
+		
+		.accordionItem ul:last-child {
+			padding-bottom: 1em;
+		}
+		
 		/* Example toggle css */
 		
 		.accordion-title.accordionTitle.example-heading {
@@ -57,7 +65,7 @@
 		.accordionItem ul li {
 			line-height: 1em;
 			min-height: 1em;
-			padding: 0.5em;
+			padding: 0.25em;
 		}
 		
 		dd.accordionItem {
