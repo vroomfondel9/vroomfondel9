@@ -66,6 +66,7 @@
 			line-height: 1em;
 			min-height: 1em;
 			padding: 0.25em;
+			margin-right: 3em;
 		}
 		
 		dd.accordionItem {
@@ -74,6 +75,7 @@
 		
 		dd.accordionItem p {
 			margin-left: 3em;
+			margin-right: 3em;
 		}
 		
 		/* End Custom CSS */
